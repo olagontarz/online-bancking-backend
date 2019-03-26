@@ -55,7 +55,7 @@ app.post('/transfers', (request, response) => {
   setTimeout(() => {
     response.statusCode = 200;
     response.json('request.body');
-  }, 10000);
+  }, 2000);
 });
 
 
@@ -67,7 +67,7 @@ app.get('/transfers/:user', (request, response) => {
 });
 
 
-app.listen(3000, (err) => {
+app.listen(process.env.PORT || 4000, (err) => {
   if (err) return console.log('Something bad happened', err);
   return console.log('Server is listening on port 3000');
 });

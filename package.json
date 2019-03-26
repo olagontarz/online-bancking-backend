@@ -9,20 +9,18 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "8.11.4"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ajv": "^6.5.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
-    "elasticsearch": "*",
     "express": "^4.16.3",
-    "forever-monitor": "^1.7.1",
     "log-timestamp": "^0.2.1",
     "morgan": "^1.9.1",
-    "net": "^1.0.2",
-    "promise-socket": "^3.1.1",
-    "redis": "^2.8.0"
+    "net": "^1.0.2"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
@@ -30,13 +28,10 @@
     "eslint-plugin-import": "^2.14.0"
   },
   "bundleDependencies": [
-    "ajv",
     "body-parser",
-    "elasticsearch",
     "express",
     "forever-monitor",
     "net",
-    "promise-socket",
     "log-timestamp"
   ],
   "description": ""
