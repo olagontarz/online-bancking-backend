@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 
-const config = require('./config.js');
-
 const app = express();
 
 morgan.format('format', '[:date[iso]] ":method :url" :status - :response-time ms - :res[content-length] - :remote-addr');
@@ -69,7 +67,7 @@ app.get('/transfers/:user', (request, response) => {
 });
 
 
-app.listen(config.app.port, (err) => {
+app.listen(3000, (err) => {
   if (err) return console.log('Something bad happened', err);
-  return console.log(`Server is listening on port ${config.app.port}`);
+  return console.log('Server is listening on port 3000');
 });
