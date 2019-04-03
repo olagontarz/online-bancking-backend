@@ -4,6 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+
+const auth = require('./auth.js');
 
 const app = express();
 
@@ -22,52 +25,58 @@ app.use((err, req, res, next) => {
 app.use(cors());
 
 
+const jwtsecret = 'supersecret';
 const transfers = [];
-
+const tokens = [];
 
 app.get('/', (request, response) => {
-  response.statusCode = 200;
-  response.send('Ok');
+  response.status(200).send('Ok');
 });
 
 
-app.post('/users/auth', (request, response) => {
-  console.log(request.body.username);
-  if (request.body.username === 'admin' && request.body.password === 'admin') {
-    const body = {
+function validateUser(login, password) {
+  return login === 'admin' && password === 'admin';
+}
+
+async function generateToken(login) {
+  const token = jwt.sign({ login: login.toString() }, jwtsecret);
+  tokens.push(token);
+  return token;
+}
+
+
+app.post('/users/auth', async (request, response) => {
+  if (validateUser(request.body.username, request.body.password)) {
+    const token = await generateToken(request.body.username);
+    const user = {
       id: 1,
       username: request.body.username,
       password: request.body.password,
-      token: 'fake-jwt-token',
+      token,
     };
-    response.status(200);
-    response.json(body);
+    console.log(user);
+    response.send({ user });
   } else {
-    // else return 400 bad request
-    response.status(400);
-    response.send('Username or password is incorrect');
+    // 400 bad request
+    response.status(400).send({ error: 'Username or password is incorrect' });
   }
 });
 
 
-app.post('/transfers', (request, response) => {
+app.post('/transfers', auth, (request, response) => {
   transfers.push(request.body);
   setTimeout(() => {
-    response.statusCode = 200;
-    response.json('request.body');
+    response.send(request.body);
   }, 2000);
 });
 
 
-app.get('/transfers/:user', (request, response) => {
-  const { user } = request.params.user;
-  console.log(user);
-  response.statusCode = 200;
-  response.json(transfers);
+app.get('/transfers/:user', auth, (request, response) => {
+  response.status(200).send(transfers);
 });
 
 
-app.listen(process.env.PORT || 4000, (err) => {
+app.listen(process.env.PORT || 3000, (err) => {
   if (err) return console.log('Something bad happened', err);
   return console.log('Server is listening on port 3000');
 });
