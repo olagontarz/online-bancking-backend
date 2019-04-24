@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const user = require('../routes/user');
+const users = require('../users');
 
 const jwtsecret = 'supersecret';
 
@@ -8,7 +8,9 @@ const auth = async (request, response, next) => {
     const token = request.header('Authorization').replace('Bearer ', '');
     console.log(token);
     const decoded = jwt.verify(token, jwtsecret);
-    if (user.userExist(decoded.login)) {
+    console.log("AAA")
+    console.log(users.exist(decoded.login));
+    if (users.exist(decoded.login)) {
       console.log(decoded.login);
       request.login = decoded.login;
       next();
