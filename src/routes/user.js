@@ -21,7 +21,7 @@ router.post('/users/auth', async (request, response) => {
     };
     response.send({ user });
   } else {
-    response.status(400).send({ error: 'Username or password is incorrect' });
+    response.status(400).send({ error: 'Username or password is incorrect.' });
   }
 });
 
