@@ -12,21 +12,14 @@ const users = new Map([
   ['user008', 'password008'],
   ['user009', 'password009'],
   ['user010', 'password010'],
-  ['user011', 'password011'],
-  ['user012', 'password012'],
-  ['user013', 'password013'],
-  ['user014', 'password014'],
-  ['user015', 'password015'],
 ]);
 
-function validate(login, password) {
-  if (exist(login) && users.get(login) === password) return true;
-  return false;
-}
-
-function exist(login) {
-  console.log(users.has(login));
+const exist = (login) => {
   return users.has(login);
-}
+};
 
-module.exports = { validate, exist };
+const validate = (login, password) => {
+  return exist(login) && users.get(login) === password;
+};
+
+module.exports = { exist, validate };

@@ -7,5 +7,7 @@ module.exports = {
         "no-use-before-define": ["error", { "functions": false, "classes": true }],
         "no-plusplus": 0,
         "class-methods-use-this": ["error", { "exceptMethods": ["consume"] }],
+        "no-unused-vars": [ "error", { "args": "none" }],
+        "arrow-body-style": ["error", "always"],
     }
 };

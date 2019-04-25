@@ -12,29 +12,24 @@
   "engines": {
     "node": "8.11.4"
   },
-  "author": "",
+  "author": "Ola Gontarz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olagontarz/online-banking-backend.git"
+  },
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.5.1",
-    "log-timestamp": "^0.2.1",
     "morgan": "^1.9.1",
-    "net": "^1.0.2"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"
   },
-  "bundleDependencies": [
-    "body-parser",
-    "express",
-    "forever-monitor",
-    "net",
-    "log-timestamp"
-  ],
-  "description": ""
+  "description": "A simple backend service for online bancking mockup application."
 }
