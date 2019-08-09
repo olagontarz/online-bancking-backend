@@ -32,6 +32,27 @@ const transfers = new Map([
   ['user028', []],
   ['user029', []],
   ['user030', []],
+
+  ['user101', []],
+  ['user102', []],
+  ['user103', []],
+  ['user104', []],
+  ['user105', []],
+  ['user106', []],
+  ['user107', []],
+  ['user108', []],
+  ['user109', []],
+  ['user110', []],
+  ['user111', []],
+  ['user112', []],
+  ['user113', []],
+  ['user114', []],
+  ['user115', []],
+  ['user116', []],
+  ['user117', []],
+  ['user118', []],
+  ['user119', []],
+  ['user120', []],
 ]);
 
 const add = (login, transfer) => {

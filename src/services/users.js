@@ -32,6 +32,27 @@ const users = new Map([
   ['user028', 'password028'],
   ['user029', 'password029'],
   ['user030', 'password030'],
+
+  ['user101', 'password101'],
+  ['user102', 'password102'],
+  ['user103', 'password103'],
+  ['user104', 'password104'],
+  ['user105', 'password105'],
+  ['user106', 'password106'],
+  ['user107', 'password107'],
+  ['user108', 'password108'],
+  ['user109', 'password109'],
+  ['user110', 'password110'],
+  ['user111', 'password111'],
+  ['user112', 'password112'],
+  ['user113', 'password113'],
+  ['user114', 'password114'],
+  ['user115', 'password115'],
+  ['user116', 'password116'],
+  ['user117', 'password117'],
+  ['user118', 'password118'],
+  ['user119', 'password119'],
+  ['user120', 'password120'],
 ]);
 
 const exist = (login) => {
